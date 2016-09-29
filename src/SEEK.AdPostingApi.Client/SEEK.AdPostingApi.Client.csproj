@@ -62,8 +62,8 @@
     <Compile Include="Hal\EmbeddedAttribute.cs" />
     <Compile Include="Hal\IResource.cs" />
     <Compile Include="Hal\Links.cs" />
-    <Compile Include="HttpClientLog.cs" />
-    <Compile Include="HttpClientLoggingHandler.cs" />
+    <Compile Include="AdPostingApiClientLog.cs" />
+    <Compile Include="AdPostingApiClientLoggingHandler.cs" />
     <Compile Include="Models\ExpireAdvertisementJsonPatch.cs" />
     <Compile Include="Models\AdvertisementErrorResponse.cs" />
     <Compile Include="Models\AdvertisementError.cs" />

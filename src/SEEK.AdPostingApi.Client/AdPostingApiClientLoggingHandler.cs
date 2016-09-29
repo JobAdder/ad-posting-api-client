@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace SEEK.AdPostingApi.Client
 {
-  public class HttpClientLoggingHandler : DelegatingHandler
+  public class AdPostingApiClientLoggingHandler : DelegatingHandler
   {
-    public HttpClientLoggingHandler(HttpMessageHandler innerHandler, HttpClientLog logger,
+    public AdPostingApiClientLoggingHandler(HttpMessageHandler innerHandler, AdPostingApiClientLog logger,
       bool includeRequestContent = true,
       bool includeResponseContent = false)
       : base(innerHandler)
@@ -17,7 +17,7 @@ namespace SEEK.AdPostingApi.Client
       _IncludeResponseContent = includeResponseContent;
     }
 
-    private readonly HttpClientLog _Logger;
+    private readonly AdPostingApiClientLog _Logger;
     private readonly bool _IncludeRequestContent;
     private readonly bool _IncludeResponseContent;
 

@@ -15,7 +15,7 @@ namespace SEEK.AdPostingApi.Client
         private IndexResource _indexResource;
         private readonly Lazy<Task> _ensureIndexResourceInitialised;
         private readonly Hal.Client _client;
-        private readonly HttpClientLog _logger;
+        private readonly AdPostingApiClientLog _logger;
 
         public AdPostingApiClient(string id, string secret, Environment env = Environment.Production) : this(id, secret, env.GetAttribute<EnvironmentUrlAttribute>().Uri)
         {
@@ -29,8 +29,8 @@ namespace SEEK.AdPostingApi.Client
         {
             this._ensureIndexResourceInitialised = new Lazy<Task>(() => this.InitialiseIndexResource(adPostingUri), LazyThreadSafetyMode.ExecutionAndPublication);
             this._tokenClient = tokenClient;
-            this._logger = new HttpClientLog();
-            this._client = new Hal.Client(new HttpClient(new HttpClientLoggingHandler(new AdPostingApiMessageHandler(new OAuthMessageHandler(tokenClient)), _logger, true, true)));
+            this._logger = new AdPostingApiClientLog();
+            this._client = new Hal.Client(new HttpClient(new AdPostingApiClientLoggingHandler(new AdPostingApiMessageHandler(new OAuthMessageHandler(tokenClient)), _logger, true, true)));
         }
 
         private Task EnsureIndexResourceInitialised()

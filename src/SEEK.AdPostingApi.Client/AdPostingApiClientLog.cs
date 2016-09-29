@@ -2,7 +2,7 @@
 
 namespace SEEK.AdPostingApi.Client
 {
-  public class HttpClientLog
+  public class AdPostingApiClientLog
   {
     private readonly StringBuilder _Log = new StringBuilder();
     private readonly StringBuilder _BlockLog = new StringBuilder();
